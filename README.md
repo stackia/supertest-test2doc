@@ -1,5 +1,7 @@
 # supertest-test2doc
 
+[![npm](https://img.shields.io/npm/l/supertest-test2doc.svg)](https://www.npmjs.com/package/supertest-test2doc) [![npm](https://img.shields.io/npm/v/supertest-test2doc.svg)](https://www.npmjs.com/package/supertest-test2doc) [![Travis CI](https://travis-ci.org/stackia/supertest-test2doc.svg?branch=master)](https://travis-ci.org/stackia/supertest-test2doc) [![David](https://david-dm.org/stackia/supertest-test2doc/status.svg)](https://david-dm.org/stackia/supertest-test2doc) [![David](https://david-dm.org/stackia/supertest-test2doc/dev-status.svg)](https://david-dm.org/stackia/supertest-test2doc?type=dev) [![Gitter](https://img.shields.io/gitter/room/test2doc-js/Lobby.svg)](https://gitter.im/test2doc-js/Lobby)
+
 A [supertest](https://github.com/visionmedia/supertest) extension to make life easier with [test2doc.js](https://github.com/stackia/test2doc.js).
 
 ## Usage
