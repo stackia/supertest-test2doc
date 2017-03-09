@@ -46,7 +46,7 @@ doc.group('Products').is(doc => {
 })
 ```
 
-You can find more examples here.
+You can find more examples [here](https://github.com/stackia/supertest-test2doc/blob/master/example/v2ex/v2ex.js).
 
 ## License
 
