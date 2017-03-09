@@ -1,6 +1,6 @@
 {
   "name": "supertest-test2doc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A supertest extension to make life easier with test2doc.js",
   "main": "index.js",
   "scripts": {
