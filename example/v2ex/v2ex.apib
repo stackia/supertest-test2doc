@@ -1,0 +1,509 @@
+FORMAT: 1A9
+HOST: https://www.v2ex.com/api
+
+# V2EX 非官方 API 列表 1.0.0
+
+V2EX 非官方 API 列表，仅供参考，欢迎补充。
+
+接口来源：https://github.com/djyde/V2EX-API
+
+# Site [/site]
+
+网站相关接口
+
+## 获取网站信息 [GET /site/info.json]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:55 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            expires: -1
+            server: Galaxy/3.9.7.5
+            etag: W/"865046901346e0e3ebeee228066b4343b408c2d0"
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: MISS from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes
+        + title: V2EX - 站名
+        + slogan: way to explore - 口号
+        + `description`: 创意工作者们的社区 - 网站描述
+        + domain: www.v2ex.com - 网站域名
+
+## 获取网站状态 [GET /site/stats.json]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:55 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            expires: -1
+            server: Galaxy/3.9.7.5
+            etag: W/"70609b57228483aea80239d08df7923e5327b0fa"
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: MISS from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes
+        + `topic_max`: 339313 (number) - 主题数量
+        + `member_max`: 218850 (number) - 用户数量
+
+## 获取 Livid 个人资料 [GET /site/livid.json]
+
+这是一个不存在的接口，用来测试 404。
+
++ Response 404 (text/html)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:55 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            set-cookie: PB3_SESSION="2|1:0|10:1489054675|11:PB3_SESSION|40:djJleDo2MS4xNDAuMTI3LjEwNDoxOTIzNTE0OQ==|a939e1623b0916f9237eb354897fb03b57733bfcae99aa241d3b398b3bd911e0"; expires=Tue, 14 Mar 2017 10:17:55 GMT; httponly; Path=/
+            set-cookie: V2EX_LANG=zhcn; Path=/
+            server: TornadoServer/4.4.2
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+
+# Node [/nodes]
+
+节点相关接口
+
+## 获取所有节点列表 [GET /nodes/all.json]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:55 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 119
+            expires: Thu, 09 Mar 2017 12:06:16 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"f969ef3b5bac8974275e569f5d041ea59c9f31a6"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=7200
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 1 (number)
+            + name: babel - 节点名称
+            + url: `http://www.v2ex.com/go/babel`
+            + title: Project Babel
+            + `title_alternative`: Project Babel
+            + topics: 1119 (number)
+            + header: `Project Babel - 帮助你在云平台上搭建自己的社区`
+            + footer: `V2EX 基于 Project Babel 驱动。Project Babel 是用 Python 语言写成的，运行于 Google App Engine 云计算平台上的社区软件。Project Babel 当前开发分支 2.5。最新版本可以从 <a href="http://github.com/livid/v2ex" target="_blank">GitHub</a> 获取。`
+            + created: 1272206882 (number)
+        + (object)
+            + id: 2 (number)
+            + name: v2ex
+            + url: `http://www.v2ex.com/go/v2ex`
+            + title: V2EX
+            + `title_alternative`: V2EX
+            + topics: 2784 (number)
+            + header: 这里讨论和发布关于 V2EX 站点的发展。
+            + footer (object, nullable)
+            + created: 1272207021 (number)
+
+## 获取指定节点信息 [GET /nodes/show.json{?id,name}]
+
+节点 ID 和节点名两个参数二选一。
+
++ Parameters
+    + id: `2` (number) - 节点 ID
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:56 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 119
+            expires: Thu, 09 Mar 2017 11:06:17 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"ef9cbd2f9e1c0a5ae5d97e04f7d3b83a402bf3e1"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=3600
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes
+        + id: 2 (number)
+        + name: v2ex
+        + url: `http://www.v2ex.com/go/v2ex`
+        + title: V2EX
+        + `title_alternative`: V2EX
+        + topics: 2784 (number)
+        + stars: 653 (number)
+        + header: 这里讨论和发布关于 V2EX 站点的发展。
+        + footer (object, nullable)
+        + created: 1272207021 (number)
+        + `avatar_mini`: `//v2ex.assets.uxengine.net/navatar/c81e/728d/2_mini.png?m=1452035333`
+        + `avatar_normal`: `//v2ex.assets.uxengine.net/navatar/c81e/728d/2_normal.png?m=1452035333`
+        + `avatar_large`: `//v2ex.assets.uxengine.net/navatar/c81e/728d/2_large.png?m=1452035333`
+
++ Request (application/json)
+
+    + Parameters
+        + name: `stackia` - 节点名
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:56 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 108
+            expires: -1
+            server: Galaxy/3.9.7.5
+            etag: W/"e02d277e585f61da946d9f2dbf15ba5f89cb12b0"
+            x-rate-limit-reset: 1489057200
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: MISS from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes
+        + status: error
+        + message: Object Not Found
+        + `rate_limit` - API 访问次数限制相关信息
+            + used: 12 (number)
+            + `hourly_quota`: 120 (number)
+            + `hourly_remaining`: 108 (number)
+
+# Topic [/topics]
+
+主题相关接口
+
+## 获取最新主题列表 [GET /topics/latest.json]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:56 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 107
+            expires: Thu, 09 Mar 2017 10:19:56 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"cdfc4b0060468446b863439d83a2f0750f0e6513"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=120
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: EXPIRED from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 346226 (number)
+            + title: 3 分钟学习微服务系列 | CAP 定理和数据一致性
+            + url: `http://www.v2ex.com/t/346226`
+            + content: `微服务在业界正获得越来越多的关注，理解微服务架构模式，对现有企业应用转型升级大有帮助。如何快速学习微服务中复杂的概念，掌握其实践，成为众多学习者关注的问题。 DaoCloud 首席架构师王天青 Grissom 为大家带来「 3 分钟学习微服务」系列，为微服务学习 **划 重 点** ！上期我们推出了「事务及分布式事务」，今天的重点：**CAP 定理和数据一致性**。 ...`
+            + `content_rendered`: `<p>微服务在业界正获得越来越多的关注，理解微服务架构模式，对现有企业应用转型升级大有帮助。如何快速学习微服务中复杂的概念，掌握其实践，成为众多学习者关注的问题。 DaoCloud 首席架构师王天青 Grissom 为大家带来「 3 分钟学习微服务」系列，为微服务学习 <strong>划 重 点</strong> ！上期我们推出了「事务及分布式事务」，今天的重点：<strong>CAP 定理和数据一致性</strong>。</p> ...`
+            + replies: 0 (number)
+            + `member` - 发帖人信息
+                + id: 86244 (number)
+                + username: daocloud
+                + tagline: Talk is cheap, show me the code
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_mini.png?m=1471418271`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_normal.png?m=1471418271`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_large.png?m=1471418271`
+            + node
+                + id: 300 (number)
+                + name: programmer
+                + title: 程序员
+                + `title_alternative`: Programmer
+                + url: `http://www.v2ex.com/go/programmer`
+                + topics: 14965 (number)
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_mini.png?m=1489022494`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_normal.png?m=1489022494`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_large.png?m=1489022494`
+            + created: 1489054606 (number)
+            + `last_modified`: 1489054606 (number)
+            + `last_touched`: 1489054426 (number)
+
+## 获取热门主题列表 [GET /topics/hot.json]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:56 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 106
+            server: Galaxy/3.9.7.5
+            etag: W/"6f4a29bb169e7cb679fb23689026845b76bd80af"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=120
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: EXPIRED from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 346015 (number)
+            + title: 女王节的面试我们哪来的胆子歧视女性！
+            + url: `http://www.v2ex.com/t/346015`
+            + content: `正值一年一度的女王节，一位前端候选人由于觉得受到了性别歧视开帖吐槽( https://www.v2ex.com/t/345941#reply53)。 DJI 人力资源部注意到这一事件后高度重视，经调查了解，特在此开帖说明。                                                                                    ...`
+            + `content_rendered`: `<p>正值一年一度的女王节，一位前端候选人由于觉得受到了性别歧视开帖吐槽( <a href="https://www.v2ex.com/t/345941#reply53)。" rel="nofollow">https://www.v2ex.com/t/345941#reply53)。</a> DJI 人力资源部注意到这一事件后高度重视，经调查了解，特在此开帖说明。</p> ...`
+            + replies: 169 (number)
+            + `member`
+                + id: 215510 (number)
+                + username: suechen
+                + tagline
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_mini.png?m=1488992447`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_normal.png?m=1488992447`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_large.png?m=1488992447`
+            + node
+                + id: 770 (number)
+                + name: career
+                + title: 职场话题
+                + `title_alternative`: Career
+                + url: `http://www.v2ex.com/go/career`
+                + topics: 2370 (number)
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_mini.png?m=1481194225`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_normal.png?m=1481194225`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_large.png?m=1481194225`
+            + created: 1488997366 (number)
+            + `last_modified`: 1489003185 (number)
+            + `last_touched`: 1489053919 (number)
+
+## 获取指定主题信息 [GET /topics/show.json{?id,username,node_id,node_name}]
+
+参数四选一。
+
++ Parameters
+    + id: `1000` (number)
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:57 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 115
+            expires: Thu, 09 Mar 2017 11:06:19 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"3de521446be8f63291d5441539267385088241e7"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=3600
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 1000 (number)
+            + title: Google App Engine x MobileMe
+            + url: `http://www.v2ex.com/t/1000`
+            + content: 从现在开始，新上传到 V2EX 的头像将存储在 MobileMe iDisk 中。这是 V2EX 到目前为之所用到的第三个云。 ...
+            + `content_rendered`: 从现在开始，新上传到 V2EX 的头像将存储在 MobileMe iDisk 中。这是 V2EX 到目前为之所用到的第三个云。 ...
+            + replies: 14 (number)
+            + `member`
+                + id: 1 (number)
+                + username: Livid
+                + tagline: Gravitated and spellbound
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_mini.png?m=1466415272`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_normal.png?m=1466415272`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_large.png?m=1466415272`
+            + node
+                + id: 1 (number)
+                + name: babel
+                + title: Project Babel
+                + url: `http://www.v2ex.com/go/babel`
+                + topics: 1119 (number)
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/navatar/c4ca/4238/1_mini.png?m=1419840368`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/navatar/c4ca/4238/1_normal.png?m=1419840368`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/navatar/c4ca/4238/1_large.png?m=1419840368`
+            + created: 1280192329 (number) - 主题创建时间戳
+            + `last_modified`: 1335004238 (number)
+            + `last_touched`: 1280285385 (number)
+
++ Request (application/json)
+
+    + Parameters
+        + username: `Livid` - 根据用户名取该用户所发表主题
+        + node_id (object) - 根据节点 ID 取该节点下所有主题
+        + node_name (object) - 根据节点名取该节点下所有主题
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:57 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 114
+            expires: Thu, 09 Mar 2017 11:06:19 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"5aa22a50200da89fcd70d4858464ecb908e6d84a"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=3600
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 345881 (number)
+            + title: `Zelda: BotW 的 Amiibo 支持列表`
+            + url: `http://www.v2ex.com/t/345881`
+            + content: `http://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Amiibo_Functionality`
+            + `content_rendered`: `<a target="_blank" href="http://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Amiibo_Functionality" rel="nofollow">http://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Amiibo_Functionality</a>`
+            + replies: 0 (number)
+            + `member`
+                + id: 1 (number)
+                + username: Livid
+                + tagline: Gravitated and spellbound
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_mini.png?m=1466415272`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_normal.png?m=1466415272`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_large.png?m=1466415272`
+            + node
+                + id: 968 (number)
+                + name: zelda
+                + title: 塞尔达传说
+                + `title_alternative`: The Legend of Zelda
+                + url: `http://www.v2ex.com/go/zelda`
+                + topics: 0 (number)
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/navatar/8f46/8c87/968_mini.png?m=1488951914`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/navatar/8f46/8c87/968_normal.png?m=1488951914`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/navatar/8f46/8c87/968_large.png?m=1488951914`
+            + created: 1488957414 (number)
+            + `last_modified`: 1488957414 (number)
+            + `last_touched`: 1488957414 (number)
+
+# Replies [/replies]
+
+主题回复相关接口
+
+## 获取指定主题的所有回复列表 [GET /replies/show.json{?topic_id,page,page_size}]
+
++ Parameters
+    + topic_id: `1` (number)
+    + page: `1` (number) - 当前页数
+    + page_size: `20` (number) - 每页条数
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:57 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 113
+            expires: Thu, 09 Mar 2017 14:06:19 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"90b37c2df866b11ee4b9c97af9048c060fa32da2"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=14400
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes (array)
+        + (object)
+            + id: 1 (number)
+            + thanks: 5 (number) - 获得感谢数
+            + content: 很高兴看到 v2ex 又回来了，等了你半天发第一贴了，憋死我了。 ...
+            + `content_rendered`: 很高兴看到 v2ex 又回来了，等了你半天发第一贴了，憋死我了。 ...
+            + `member`
+                + id: 4 (number)
+                + username: Jay
+                + tagline: Engineer. Make things.
+                + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/a87f/f679/4_mini.png?m=1424948183`
+                + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/a87f/f679/4_normal.png?m=1424948183`
+                + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/a87f/f679/4_large.png?m=1424948183`
+            + created: 1272207477 (number)
+            + `last_modified`: 1335092176 (number)
+
+# Members [/members]
+
+用户相关接口
+
+## 获取指定主题的所有回复列表 [GET /members/show.json{?username}]
+
++ Parameters
+    + username: `Livid`
+
++ Response 200 (application/json)
+
+    + Headers
+
+            date: Thu, 09 Mar 2017 10:17:57 GMT
+            transfer-encoding: chunked
+            connection: close
+            vary: Accept-Encoding
+            x-rate-limit-remaining: 112
+            expires: Thu, 09 Mar 2017 11:06:20 GMT
+            server: Galaxy/3.9.7.5
+            etag: W/"853711c46fc9b0c0a0e509c3f15ba966454eb96a"
+            x-rate-limit-reset: 1489057200
+            cache-control: max-age=3600
+            x-rate-limit-limit: 120
+            google: XY
+            content-encoding: gzip
+            strict-transport-security: max-age=10886400
+            x-orca-accelerator: HIT from 002.chn.wux01.cn.krill.zenlogic.net
+
+    + Attributes
+        + status: found
+        + id: 1 (number)
+        + url: `http://www.v2ex.com/member/Livid`
+        + username: Livid
+        + website
+        + twitter
+        + psn
+        + github
+        + btc
+        + location: 91789
+        + tagline: Gravitated and spellbound
+        + bio: I’ve managed to make something I could call my own world, over time, little by little. And when I’m inside it, I feel kind of relieved.
+        + `avatar_mini`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_mini.png?m=1466415272`
+        + `avatar_normal`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_normal.png?m=1466415272` - 头像 URL
+        + `avatar_large`: `//v2ex.assets.uxengine.net/avatar/c4ca/4238/1_large.png?m=1466415272`
+        + created: 1272203146 (number)
+

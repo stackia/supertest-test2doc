@@ -1,0 +1,45 @@
+{
+  "name": "supertest-test2doc",
+  "version": "0.0.1",
+  "description": "A supertest extension to make life easier with test2doc.js",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint",
+    "example": "mocha ./example/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackia/supertest-test2doc.git"
+  },
+  "keywords": [
+    "test2doc",
+    "supertest",
+    "docs",
+    "api",
+    "test",
+    "documents"
+  ],
+  "author": "Stackia <jsq2627@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stackia/supertest-test2doc/issues"
+  },
+  "homepage": "https://github.com/stackia/supertest-test2doc#readme",
+  "devDependencies": {
+    "eslint": "^3.17.0",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "mocha": "^3.2.0",
+    "should": "^11.2.0",
+    "supertest": "^3.0.0",
+    "test2doc": "^0.3.3"
+  },
+  "dependencies": {
+    "methods": "^1.1.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  }
+}

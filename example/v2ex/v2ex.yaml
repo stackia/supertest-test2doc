@@ -1,0 +1,971 @@
+swagger: '2.0'
+info:
+  title: V2EX 非官方 API 列表
+  version: 1.0.0
+  description: |-
+    V2EX 非官方 API 列表，仅供参考，欢迎补充。
+
+    接口来源：https://github.com/djyde/V2EX-API
+paths:
+  /site/info.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                title: 站名
+              slogan:
+                type: string
+                title: 口号
+              description:
+                type: string
+                title: 网站描述
+              domain:
+                type: string
+                title: 网站域名
+          examples:
+            application/json:
+              title: V2EX
+              slogan: way to explore
+              description: 创意工作者们的社区
+              domain: www.v2ex.com
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Site
+      summary: 获取网站信息
+  /site/stats.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              topic_max:
+                type: number
+                title: 主题数量
+              member_max:
+                type: number
+                title: 用户数量
+          examples:
+            application/json:
+              topic_max: 339313
+              member_max: 218850
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Site
+      summary: 获取网站状态
+  /site/livid.json:
+    get:
+      responses:
+        '404':
+          description: ''
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            set-cookie:
+              type: array
+              items:
+                type: string
+            server:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+      tags:
+        - Site
+      summary: 获取 Livid 个人资料
+      description: 这是一个不存在的接口，用来测试 404。
+  /nodes/all.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+                  title: 节点名称
+                url:
+                  type: string
+                title:
+                  type: string
+                title_alternative:
+                  type: string
+                topics:
+                  type: number
+                header:
+                  type: string
+                footer:
+                  type: string
+                created:
+                  type: number
+          examples:
+            application/json:
+              - id: 1
+                name: babel
+                url: 'http://www.v2ex.com/go/babel'
+                title: Project Babel
+                title_alternative: Project Babel
+                topics: 1119
+                header: Project Babel - 帮助你在云平台上搭建自己的社区
+                footer: 'V2EX 基于 Project Babel 驱动。Project Babel 是用 Python 语言写成的，运行于 Google App Engine 云计算平台上的社区软件。Project Babel 当前开发分支 2.5。最新版本可以从 <a href="http://github.com/livid/v2ex" target="_blank">GitHub</a> 获取。'
+                created: 1272206882
+              - id: 2
+                name: v2ex
+                url: 'http://www.v2ex.com/go/v2ex'
+                title: V2EX
+                title_alternative: V2EX
+                topics: 2784
+                header: 这里讨论和发布关于 V2EX 站点的发展。
+                footer: null
+                created: 1272207021
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Node
+      summary: 获取所有节点列表
+  /nodes/show.json:
+    get:
+      responses:
+        '200':
+          description: 节点信息
+          schema:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              url:
+                type: string
+              title:
+                type: string
+              title_alternative:
+                type: string
+              topics:
+                type: number
+              stars:
+                type: number
+              header:
+                type: string
+              footer:
+                type: 'null'
+              created:
+                type: number
+              avatar_mini:
+                type: string
+              avatar_normal:
+                type: string
+              avatar_large:
+                type: string
+            title: 节点信息
+          examples:
+            application/json:
+              id: 2
+              name: v2ex
+              url: 'http://www.v2ex.com/go/v2ex'
+              title: V2EX
+              title_alternative: V2EX
+              topics: 2784
+              stars: 653
+              header: 这里讨论和发布关于 V2EX 站点的发展。
+              footer: null
+              created: 1272207021
+              avatar_mini: //v2ex.assets.uxengine.net/navatar/c81e/728d/2_mini.png?m=1452035333
+              avatar_normal: //v2ex.assets.uxengine.net/navatar/c81e/728d/2_normal.png?m=1452035333
+              avatar_large: //v2ex.assets.uxengine.net/navatar/c81e/728d/2_large.png?m=1452035333
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Node
+      summary: 获取指定节点信息
+      description: 节点 ID 和节点名两个参数二选一。
+      parameters:
+        - type: number
+          description: 节点 ID
+          name: id
+          in: query
+  /topics/latest.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                title:
+                  type: string
+                url:
+                  type: string
+                content:
+                  type: string
+                content_rendered:
+                  type: string
+                replies:
+                  type: number
+                member:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    tagline:
+                      type: string
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                  title: 发帖人信息
+                node:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    title:
+                      type: string
+                    title_alternative:
+                      type: string
+                    url:
+                      type: string
+                    topics:
+                      type: number
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                created:
+                  type: number
+                last_modified:
+                  type: number
+                last_touched:
+                  type: number
+          examples:
+            application/json:
+              - id: 346226
+                title: 3 分钟学习微服务系列 | CAP 定理和数据一致性
+                url: 'http://www.v2ex.com/t/346226'
+                content: "微服务在业界正获得越来越多的关注，理解微服务架构模式，对现有企业应用转型升级大有帮助。如何快速学习微服务中复杂的概念，掌握其实践，成为众多学习者关注的问题。 DaoCloud 首席架构师王天青 Grissom 为大家带来「 3 分钟学习微服务」系列，为微服务学习 **划 重 点** ！上期我们推出了「事务及分布式事务」，今天的重点：**CAP 定理和数据一致性**。\r\n\r\n# CAP 定理\r\n\r\n- 2000 年 7 月，加州大学伯克利分校的 Eric Brewer 教授在 ACM PODC 会议上提出 CAP 猜想。\r\n\r\n- 2 年后，麻省理工学院的 Seth Gilbert 和 Nancy Lynch 从理论上证明了 CAP 。之后， CAP 理论正式成为分布式计算领域的公认定理。\r\n\r\n- CAP 定理：一个分布式系统最多只能同时满足**一致性**（ Consistency ）、**可用性**（ Availability ）和**分区容错性**（ Partition tolerance ）这三项中的两项。\r\n\r\n![]( http://blog.daocloud.io/wp-content/uploads/2017/03/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2017-03-09-%E4%B8%8B%E5%8D%886.11.14.png) \r\n\r\n\r\n# 一致性\r\n\r\n一致性指更新操作成功后，所有节点在同一时间的数据完全一致。常见的一致性类别：\r\n\r\n- **Weak （弱一致性）**：当你写入一个新值后，读操作在数据副本上可能读出来，也可能读不出来。比如：某些 cache 系统。\r\n\r\n- **Eventually （最终一致性）**：当你写入一个新值后，有可能读不出来，但在某个时间窗口之后保证最终能读出来。比如： DNS ，电子邮件、 Amazon S3 ， Google 搜索引擎这样的系统。\r\n\r\n- **Strong （强一致性）**：新的数据一旦写入，在任意副本任意时刻都能读到新值。比如：文件系统， RDBMS ， Azure Table 都是强一致性的。\r\n\r\n# Paxos\r\n\r\n- **Paxos 算法**是基于消息传递且具有高度容错特性的一致性算法，是目前公认的解决分布式一致性问题最有效的算法之一。\r\n\r\n- 在常见的分布式系统中，总会发生诸如机器宕机或网络异常（包括消息的延迟、丢失、重复、乱序，还有网络分区）等情况。 Paxos 算法需要解决的问题就是如何在一个可能发生上述异常的分布式系统中，快速且正确地在集群内部对某个数据的值达成一致，并且保证不论发生以上任何异常，都不会破坏整个系统的一致性。\r\n\r\n\r\n# Raft\r\n\r\n- Raft 是斯坦福的 Diego Ongaro 、 John Ousterhout 两个人以易懂（ Understandability ）为目标设计的一致性算法，在 2013 年发布了论文： In Search of an Understandable Consensus Algorithm\r\n\r\n- 从 2013 年发布到现在不过只有两年，到现在已经有了十多种语言的 Raft 算法实现框架\r\n\r\n**[RaftDemo]( https://raft.github.io/)**"
+                content_rendered: |
+                  <p>微服务在业界正获得越来越多的关注，理解微服务架构模式，对现有企业应用转型升级大有帮助。如何快速学习微服务中复杂的概念，掌握其实践，成为众多学习者关注的问题。 DaoCloud 首席架构师王天青 Grissom 为大家带来「 3 分钟学习微服务」系列，为微服务学习 <strong>划 重 点</strong> ！上期我们推出了「事务及分布式事务」，今天的重点：<strong>CAP 定理和数据一致性</strong>。</p>
+                  <h1>CAP 定理</h1>
+                  <ul>
+                  <li>
+                  <p>2000 年 7 月，加州大学伯克利分校的 Eric Brewer 教授在 ACM PODC 会议上提出 CAP 猜想。</p>
+                  </li>
+                  <li>
+                  <p>2 年后，麻省理工学院的 Seth Gilbert 和 Nancy Lynch 从理论上证明了 CAP 。之后， CAP 理论正式成为分布式计算领域的公认定理。</p>
+                  </li>
+                  <li>
+                  <p>CAP 定理：一个分布式系统最多只能同时满足<strong>一致性</strong>（ Consistency ）、<strong>可用性</strong>（ Availability ）和<strong>分区容错性</strong>（ Partition tolerance ）这三项中的两项。</p>
+                  </li>
+                  </ul>
+                  <p><img alt="" src="http://blog.daocloud.io/wp-content/uploads/2017/03/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2017-03-09-%E4%B8%8B%E5%8D%886.11.14.png"></p>
+                  <h1>一致性</h1>
+                  <p>一致性指更新操作成功后，所有节点在同一时间的数据完全一致。常见的一致性类别：</p>
+                  <ul>
+                  <li>
+                  <p><strong>Weak （弱一致性）</strong>：当你写入一个新值后，读操作在数据副本上可能读出来，也可能读不出来。比如：某些 cache 系统。</p>
+                  </li>
+                  <li>
+                  <p><strong>Eventually （最终一致性）</strong>：当你写入一个新值后，有可能读不出来，但在某个时间窗口之后保证最终能读出来。比如： DNS ，电子邮件、 Amazon S3 ， Google 搜索引擎这样的系统。</p>
+                  </li>
+                  <li>
+                  <p><strong>Strong （强一致性）</strong>：新的数据一旦写入，在任意副本任意时刻都能读到新值。比如：文件系统， RDBMS ， Azure Table 都是强一致性的。</p>
+                  </li>
+                  </ul>
+                  <h1>Paxos</h1>
+                  <ul>
+                  <li>
+                  <p><strong>Paxos 算法</strong>是基于消息传递且具有高度容错特性的一致性算法，是目前公认的解决分布式一致性问题最有效的算法之一。</p>
+                  </li>
+                  <li>
+                  <p>在常见的分布式系统中，总会发生诸如机器宕机或网络异常（包括消息的延迟、丢失、重复、乱序，还有网络分区）等情况。 Paxos 算法需要解决的问题就是如何在一个可能发生上述异常的分布式系统中，快速且正确地在集群内部对某个数据的值达成一致，并且保证不论发生以上任何异常，都不会破坏整个系统的一致性。</p>
+                  </li>
+                  </ul>
+                  <h1>Raft</h1>
+                  <ul>
+                  <li>
+                  <p>Raft 是斯坦福的 Diego Ongaro 、 John Ousterhout 两个人以易懂（ Understandability ）为目标设计的一致性算法，在 2013 年发布了论文： In Search of an Understandable Consensus Algorithm</p>
+                  </li>
+                  <li>
+                  <p>从 2013 年发布到现在不过只有两年，到现在已经有了十多种语言的 Raft 算法实现框架</p>
+                  </li>
+                  </ul>
+                  <p><strong><a href="https://raft.github.io/" rel="nofollow">RaftDemo</a></strong></p>
+                replies: 0
+                member:
+                  id: 86244
+                  username: daocloud
+                  tagline: 'Talk is cheap, show me the code'
+                  avatar_mini: //v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_mini.png?m=1471418271
+                  avatar_normal: //v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_normal.png?m=1471418271
+                  avatar_large: //v2ex.assets.uxengine.net/avatar/fec3/ada7/86244_large.png?m=1471418271
+                node:
+                  id: 300
+                  name: programmer
+                  title: 程序员
+                  title_alternative: Programmer
+                  url: 'http://www.v2ex.com/go/programmer'
+                  topics: 14965
+                  avatar_mini: //v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_mini.png?m=1489022494
+                  avatar_normal: //v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_normal.png?m=1489022494
+                  avatar_large: //v2ex.assets.uxengine.net/navatar/94f6/d7e0/300_large.png?m=1489022494
+                created: 1489054606
+                last_modified: 1489054606
+                last_touched: 1489054426
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Topic
+      summary: 获取最新主题列表
+  /topics/hot.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                title:
+                  type: string
+                url:
+                  type: string
+                content:
+                  type: string
+                content_rendered:
+                  type: string
+                replies:
+                  type: number
+                member:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    tagline:
+                      type: string
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                node:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    title:
+                      type: string
+                    title_alternative:
+                      type: string
+                    url:
+                      type: string
+                    topics:
+                      type: number
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                created:
+                  type: number
+                last_modified:
+                  type: number
+                last_touched:
+                  type: number
+          examples:
+            application/json:
+              - id: 346015
+                title: 女王节的面试我们哪来的胆子歧视女性！
+                url: 'http://www.v2ex.com/t/346015'
+                content: "正值一年一度的女王节，一位前端候选人由于觉得受到了性别歧视开帖吐槽( https://www.v2ex.com/t/345941#reply53)。 DJI 人力资源部注意到这一事件后高度重视，经调查了解，特在此开帖说明。                                                                                   \r\n\r\n大疆的程序员队伍中有相当比例的女性员工，并且承担着重要的职能，公司不存在也不允许任何性别歧视的行为。楼主所面试的岗位属于一个时间紧任务急的项目，最近项目组内加班比较常见而且时间不短；基于此情况，面试官表达了对女性候选人的担忧，但绝没有性别歧视的意思。非常遗憾，我们的面试官以这种非常不恰当的表达方式提出了这个顾虑，且造成了候选人的误会。在此对面试过程中造成的困扰深表抱歉！在三轮面试中，技术面和二面着重考察候选人的技术能力和经历，终面面试官更多考察候选人的整体匹配度。候选人是否能通过面试其实由多方面的因素决定的，比如文化价值观的契合，行事作风的合拍，以及努力积极向上的精神等等，恰恰 DJI 不会把大公司的背景，大项目的经验作为最优先考虑的因素！对于整体面试过程中面试官的语言表达的不专业性，以及对候选人的疑问没有当场做出解释再次表达歉意。                                                        \r\n\r\n最终还是要感谢此帖作者的反馈，我们会不断优化我们的面试流程，提高我们面试官的素质，为广大的应聘者提供真诚专业的面试服务。我们希望通过不断努力获得更多专业人才的青睐，希望大家能够继续关注和鞭策我们！\r\n\r\n \r\n \r\n \r\n                                                                                DJI 人力资源部"
+                content_rendered: |
+                  <p>正值一年一度的女王节，一位前端候选人由于觉得受到了性别歧视开帖吐槽( <a href="https://www.v2ex.com/t/345941#reply53)。" rel="nofollow">https://www.v2ex.com/t/345941#reply53)。</a> DJI 人力资源部注意到这一事件后高度重视，经调查了解，特在此开帖说明。</p>
+                  <p>大疆的程序员队伍中有相当比例的女性员工，并且承担着重要的职能，公司不存在也不允许任何性别歧视的行为。楼主所面试的岗位属于一个时间紧任务急的项目，最近项目组内加班比较常见而且时间不短；基于此情况，面试官表达了对女性候选人的担忧，但绝没有性别歧视的意思。非常遗憾，我们的面试官以这种非常不恰当的表达方式提出了这个顾虑，且造成了候选人的误会。在此对面试过程中造成的困扰深表抱歉！在三轮面试中，技术面和二面着重考察候选人的技术能力和经历，终面面试官更多考察候选人的整体匹配度。候选人是否能通过面试其实由多方面的因素决定的，比如文化价值观的契合，行事作风的合拍，以及努力积极向上的精神等等，恰恰 DJI 不会把大公司的背景，大项目的经验作为最优先考虑的因素！对于整体面试过程中面试官的语言表达的不专业性，以及对候选人的疑问没有当场做出解释再次表达歉意。</p>
+                  <p>最终还是要感谢此帖作者的反馈，我们会不断优化我们的面试流程，提高我们面试官的素质，为广大的应聘者提供真诚专业的面试服务。我们希望通过不断努力获得更多专业人才的青睐，希望大家能够继续关注和鞭策我们！</p>
+                  <pre><code>                                                                            DJI 人力资源部
+                  </code></pre>
+                replies: 169
+                member:
+                  id: 215510
+                  username: suechen
+                  tagline: ''
+                  avatar_mini: //v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_mini.png?m=1488992447
+                  avatar_normal: //v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_normal.png?m=1488992447
+                  avatar_large: //v2ex.assets.uxengine.net/avatar/f0c1/01a2/215510_large.png?m=1488992447
+                node:
+                  id: 770
+                  name: career
+                  title: 职场话题
+                  title_alternative: Career
+                  url: 'http://www.v2ex.com/go/career'
+                  topics: 2370
+                  avatar_mini: //v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_mini.png?m=1481194225
+                  avatar_normal: //v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_normal.png?m=1481194225
+                  avatar_large: //v2ex.assets.uxengine.net/navatar/4ea0/6fbc/770_large.png?m=1481194225
+                created: 1488997366
+                last_modified: 1489003185
+                last_touched: 1489053919
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Topic
+      summary: 获取热门主题列表
+  /topics/show.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                title:
+                  type: string
+                url:
+                  type: string
+                content:
+                  type: string
+                content_rendered:
+                  type: string
+                replies:
+                  type: number
+                member:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    tagline:
+                      type: string
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                node:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    title:
+                      type: string
+                    url:
+                      type: string
+                    topics:
+                      type: number
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                created:
+                  type: number
+                  title: 主题创建时间戳
+                last_modified:
+                  type: number
+                last_touched:
+                  type: number
+          examples:
+            application/json:
+              - id: 1000
+                title: Google App Engine x MobileMe
+                url: 'http://www.v2ex.com/t/1000'
+                content: "从现在开始，新上传到 V2EX 的头像将存储在 MobileMe iDisk 中。这是 V2EX 到目前为之所用到的第三个云。\r\n\r\n得益于这个架构升级，现在头像上传之后，将立刻在全站的所有页面更新。"
+                content_rendered: "从现在开始，新上传到 V2EX 的头像将存储在 MobileMe iDisk 中。这是 V2EX 到目前为之所用到的第三个云。\r\n<br />\r\n<br />得益于这个架构升级，现在头像上传之后，将立刻在全站的所有页面更新。"
+                replies: 14
+                member:
+                  id: 1
+                  username: Livid
+                  tagline: Gravitated and spellbound
+                  avatar_mini: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_mini.png?m=1466415272
+                  avatar_normal: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_normal.png?m=1466415272
+                  avatar_large: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_large.png?m=1466415272
+                node:
+                  id: 1
+                  name: babel
+                  title: Project Babel
+                  url: 'http://www.v2ex.com/go/babel'
+                  topics: 1119
+                  avatar_mini: //v2ex.assets.uxengine.net/navatar/c4ca/4238/1_mini.png?m=1419840368
+                  avatar_normal: //v2ex.assets.uxengine.net/navatar/c4ca/4238/1_normal.png?m=1419840368
+                  avatar_large: //v2ex.assets.uxengine.net/navatar/c4ca/4238/1_large.png?m=1419840368
+                created: 1280192329
+                last_modified: 1335004238
+                last_touched: 1280285385
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Topic
+      summary: 获取指定主题信息
+      description: 参数四选一。
+      parameters:
+        - type: number
+          name: id
+          in: query
+  /replies/show.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                thanks:
+                  type: number
+                  title: 获得感谢数
+                content:
+                  type: string
+                content_rendered:
+                  type: string
+                member:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    tagline:
+                      type: string
+                    avatar_mini:
+                      type: string
+                    avatar_normal:
+                      type: string
+                    avatar_large:
+                      type: string
+                created:
+                  type: number
+                last_modified:
+                  type: number
+          examples:
+            application/json:
+              - id: 1
+                thanks: 5
+                content: "很高兴看到 v2ex 又回来了，等了你半天发第一贴了，憋死我了。\r\n\r\nnice work~"
+                content_rendered: "很高兴看到 v2ex 又回来了，等了你半天发第一贴了，憋死我了。\r<br />\r<br />nice work~"
+                member:
+                  id: 4
+                  username: Jay
+                  tagline: Engineer. Make things.
+                  avatar_mini: //v2ex.assets.uxengine.net/avatar/a87f/f679/4_mini.png?m=1424948183
+                  avatar_normal: //v2ex.assets.uxengine.net/avatar/a87f/f679/4_normal.png?m=1424948183
+                  avatar_large: //v2ex.assets.uxengine.net/avatar/a87f/f679/4_large.png?m=1424948183
+                created: 1272207477
+                last_modified: 1335092176
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Replies
+      summary: 获取指定主题的所有回复列表
+      parameters:
+        - type: number
+          required: true
+          name: topic_id
+          in: query
+        - type: number
+          description: 当前页数
+          name: page
+          in: query
+        - type: number
+          description: 每页条数
+          name: page_size
+          in: query
+  /members/show.json:
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              id:
+                type: number
+              url:
+                type: string
+              username:
+                type: string
+              website:
+                type: string
+              twitter:
+                type: string
+              psn:
+                type: string
+              github:
+                type: string
+              btc:
+                type: string
+              location:
+                type: string
+              tagline:
+                type: string
+              bio:
+                type: string
+              avatar_mini:
+                type: string
+              avatar_normal:
+                type: string
+                title: 头像 URL
+              avatar_large:
+                type: string
+              created:
+                type: number
+          examples:
+            application/json:
+              status: found
+              id: 1
+              url: 'http://www.v2ex.com/member/Livid'
+              username: Livid
+              website: ''
+              twitter: ''
+              psn: ''
+              github: ''
+              btc: ''
+              location: '91789'
+              tagline: Gravitated and spellbound
+              bio: 'I’ve managed to make something I could call my own world, over time, little by little. And when I’m inside it, I feel kind of relieved.'
+              avatar_mini: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_mini.png?m=1466415272
+              avatar_normal: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_normal.png?m=1466415272
+              avatar_large: //v2ex.assets.uxengine.net/avatar/c4ca/4238/1_large.png?m=1466415272
+              created: 1272203146
+          headers:
+            date:
+              type: string
+            content-type:
+              type: string
+            transfer-encoding:
+              type: string
+            connection:
+              type: string
+            vary:
+              type: string
+            x-rate-limit-remaining:
+              type: string
+            expires:
+              type: string
+            server:
+              type: string
+            etag:
+              type: string
+            x-rate-limit-reset:
+              type: string
+            cache-control:
+              type: string
+            x-rate-limit-limit:
+              type: string
+            google:
+              type: string
+            content-encoding:
+              type: string
+            strict-transport-security:
+              type: string
+            x-orca-accelerator:
+              type: string
+      tags:
+        - Members
+      summary: 获取指定主题的所有回复列表
+      parameters:
+        - type: string
+          required: true
+          name: username
+          in: query
+host: www.v2ex.com
+basePath: /api
+schemes:
+  - https
+  - http
+tags:
+  - name: Site
+    description: 网站相关接口
+  - name: Node
+    description: 节点相关接口
+  - name: Topic
+    description: 主题相关接口
+  - name: Replies
+    description: 主题回复相关接口
+  - name: Members
+    description: 用户相关接口
