@@ -8,7 +8,7 @@ A [supertest](https://github.com/visionmedia/supertest) extension to make life e
 npm install --save-dev supertest test2doc supertest-test2doc
 ```
 
-Simple use `require('supertest-test2doc')(require('supertest'))` and `require(app).with(doc)` and then you no longer need to write `doc.get/post/put/delete/query/resBody...`.
+Simple use `const request = require('supertest-test2doc')(require('supertest'))` and `request(app).with(doc)` and then you no longer need to write `doc.get/post/put/delete/query/resBody...`.
 
 E.g.
 
